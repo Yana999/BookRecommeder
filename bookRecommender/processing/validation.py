@@ -20,7 +20,8 @@ def drop_na_inputs(*, input_data: pd.DataFrame) -> pd.DataFrame:
     return validated_data
 
 
-def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
+def validate_inputs(
+        *, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional[dict]]:
     """Check model inputs for unprocessable values."""
 
     # convert syntax error field names (beginning with numbers)
@@ -32,13 +33,13 @@ def validate_inputs(*, input_data: pd.DataFrame) -> Tuple[pd.DataFrame, Optional
 
     try:
         # replace numpy nans so that pydantic can validate
-        RecommenderBookDataInputs(
-            inputs=validated_data.replace({np.nan: None}).to_dict(orient="records")
-        )
+        RecommenderBookDataInputs(inputs=validated_data.replace(
+            {np.nan: None}).to_dict(orient="records"))
     except ValidationError as error:
         errors = error.json()
 
     return validated_data, errors
+
 
 class BookDataInputSchema(BaseModel):
     userID: Optional[int]
@@ -53,6 +54,7 @@ class BookDataInputSchema(BaseModel):
     imageUrlL: Optional[float]
     Location: Optional[float]
     Age: Optional[int]
+
 
 class RecommenderBookDataInputs(BaseModel):
     inputs: List[BookDataInputSchema]

@@ -46,7 +46,7 @@ class ModelConfig(BaseModel):
     num_neighbors: int
     knn_metric: str
     knn_algorithm: str
-    
+
 
 class Config(BaseModel):
     """Master config object."""

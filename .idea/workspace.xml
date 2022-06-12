@@ -1,15 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1783ba09-5bcf-4b0e-a531-b8c360a6c303" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requiremetnts/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requiremetnts/test_requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/BX-Book-Ratings.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/BookRec3.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/svd/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/BookRec2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/resources/BookRec2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookRecommender/config/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookRecommender/config/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookRecommender/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookRecommender/predict.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookRecommender/processing/data_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookRecommender/processing/data_manager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookRecommender/processing/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookRecommender/processing/features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookRecommender/processing/validation.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookRecommender/processing/validation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookRecommender/train_knn.py" beforeDir="false" afterPath="$PROJECT_DIR$/bookRecommender/train_knn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requiremetnts/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requiremetnts/test_requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/test_requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +95,10 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1783ba09-5bcf-4b0e-a531-b8c360a6c303" name="Changes" comment="" />
@@ -103,6 +126,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
