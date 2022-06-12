@@ -21,17 +21,18 @@ def run_training() -> None:
 
 if __name__ == "__main__":
     run_training()
-    data = {'userID': [276725],
-            'ISBN': ['034545104X'],
-            'bookRating': [0],
-            'bookTitle': ['Flesh Tones: A Novel'],
-            'bookAuthor': ['M. J. Rose'],
-            'yearOfPublication': [2002],
-            'publisher': ['Ballantine Books'],
-            'imageUrlS': ['http://images.amazon.com/images/P/034545104X.0...	'],
-            'imageUrlM': ['http://images.amazon.com/images/P/034545104X.0...	'],
-            'imageUrlL': ['http://images.amazon.com/images/P/034545104X.0...	'],
-            'Location': ['tyler, texas, usa'],
-            'Age': np.nan}
+    data = {
+        'userID': [276725],
+        'ISBN': ['034545104X'],
+        'bookRating': [0],
+        'bookTitle': ['Flesh Tones: A Novel'],
+        'bookAuthor': ['M. J. Rose'],
+        'yearOfPublication': [2002],
+        'publisher': ['Ballantine Books'],
+        'imageUrlS': ['http://images.amazon.com/images/P/034545104X.0...	'],
+        'imageUrlM': ['http://images.amazon.com/images/P/034545104X.0...	'],
+        'imageUrlL': ['http://images.amazon.com/images/P/034545104X.0...	'],
+        'Location': ['tyler, texas, usa'],
+        'Age': np.nan}
     print('trained')
     print(make_prediction('16 Lighthouse Road'))

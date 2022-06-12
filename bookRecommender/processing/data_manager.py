@@ -11,8 +11,19 @@ from bookRecommender.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:
     dataframe = pd.read_csv(Path(f"{DATASET_DIR}/{file_name}"))
-    dataframe.columns = ['userID', 'ISBN', 'bookRating', 'bookTitle', 'bookAuthor', 'yearOfPublication', 'publisher',
-                         'imageUrlS', 'imageUrlM', 'imageUrlL', 'Location', 'Age']
+    dataframe.columns = [
+        'userID',
+        'ISBN',
+        'bookRating',
+        'bookTitle',
+        'bookAuthor',
+        'yearOfPublication',
+        'publisher',
+        'imageUrlS',
+        'imageUrlM',
+        'imageUrlL',
+        'Location',
+        'Age']
     return dataframe
 
 
@@ -39,7 +50,7 @@ def load_pipeline(*, file_name: str) -> Pipeline:
     trained_model = None
     try:
         trained_model = joblib.load(filename=file_path)
-    except:
+    except BaseException:
         print('Cannot load saved pipline')
 
     return trained_model
