@@ -20,7 +20,9 @@ class AppConfig(BaseModel):
     """
 
     package_name: str
-    data_file: str
+    data_file_book: str
+    data_file_user: str
+    data_file_ratings: str
     pipeline_name: str
     pipeline_save_file: str
 

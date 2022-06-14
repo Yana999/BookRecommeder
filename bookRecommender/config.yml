@@ -2,7 +2,9 @@
 package_name: bookRecommender
 
 # Data Files
-data_file: train.csv
+data_file_book: BX-Books.csv
+data_file_user: BX-Users.csv
+data_file_ratings: BX-Book-Ratings.csv
 
 pipeline_name: book_recommender_model
 pipeline_save_file: book_recommender_model_output_v
