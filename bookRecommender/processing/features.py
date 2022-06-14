@@ -24,7 +24,7 @@ class NullVariableTransformer(BaseEstimator, TransformerMixin):
 
 
 class AddVariableTransformer(BaseEstimator, TransformerMixin):
-    # Null data transformer
+    # add additional data for data limit transformer
 
     def __init__(self, subject, user, rating_variable, new_feature):
         self.subject = subject
@@ -57,7 +57,7 @@ class AddVariableTransformer(BaseEstimator, TransformerMixin):
 
 
 class RestrictVariablesTransformer(BaseEstimator, TransformerMixin):
-    # null data transformer
+    # limit data according to threshold data transformer
 
     def __init__(self, location, popularity_threshold,
                  new_feature, specific_location):
@@ -79,7 +79,7 @@ class RestrictVariablesTransformer(BaseEstimator, TransformerMixin):
 
 
 class PrepareVariablesTransformer(BaseEstimator, TransformerMixin):
-    # Null data transformer
+    # prepare data for knn transformer
 
     def __init__(self, subject, user, rating_variable):
         self.subject = subject

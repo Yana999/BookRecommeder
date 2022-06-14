@@ -1,12 +1,6 @@
-import typing as t
-
-import numpy as np
-import pandas as pd
-
 from bookRecommender import __version__ as _version
 from bookRecommender.config.core import config
 from bookRecommender.processing.data_manager import load_pipeline
-from bookRecommender.processing.validation import validate_inputs
 
 pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
 book_pipe = load_pipeline(file_name=pipeline_file_name)
