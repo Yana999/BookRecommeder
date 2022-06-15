@@ -1,5 +1,4 @@
 from bookRecommender.config.core import config
-
 from bookRecommender.predict import make_prediction
 
 

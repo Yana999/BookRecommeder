@@ -1,5 +1,5 @@
-from sklearn.base import BaseEstimator, TransformerMixin
 from scipy.sparse import csr_matrix
+from sklearn.base import BaseEstimator, TransformerMixin
 
 
 class NullVariableTransformer(BaseEstimator, TransformerMixin):

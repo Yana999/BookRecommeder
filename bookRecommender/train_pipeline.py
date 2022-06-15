@@ -1,5 +1,3 @@
-import numpy as np
-
 from bookRecommender.predict import make_prediction
 from config.core import config
 from pipeline import book_pipe

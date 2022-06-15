@@ -1,10 +1,9 @@
-from bookRecommender import config
-from sklearn.pipeline import Pipeline
 from feature_engine.selection import DropFeatures
 from sklearn.neighbors import NearestNeighbors
+from sklearn.pipeline import Pipeline
 
+from bookRecommender import config
 from bookRecommender.processing import features
-
 
 book_pipe = Pipeline(
     [

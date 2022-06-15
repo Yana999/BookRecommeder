@@ -6,12 +6,12 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 # Package meta-data.
-NAME = 'tid-book-recommender'
+NAME = 'book-recommender'
 DESCRIPTION = "Example recommender system for books."
-URL = "https://github.com/trainindata/testing-and-monitoring-ml-deployments"
+URL = "https://github.com/Yana999/BookRecommeder"
 EMAIL = "abdramanova.yana@yandex.ru"
 AUTHOR = "Abdramanova Yana (Yana999) and Egorova Alexandra (AlexaEgorova)"
-REQUIRES_PYTHON = ">=3.6.0"
+REQUIRES_PYTHON = ">=3.10.0"
 
 
 # The rest you shouldn't have to touch too much :)
@@ -60,10 +60,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
     ],
