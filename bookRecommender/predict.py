@@ -22,16 +22,26 @@ def make_prediction(
 
     results = []
     matrix = pipe.named_steps["prepare"].get_prepared_data()
-    distances, indices = pipe.named_steps["knn"].kneighbors(
-        matrix.loc[input_data, :].values.reshape(1, -1), n_neighbors=config.model_config.num_neighbors
-    )
+    try:
+        distances, indices = pipe.named_steps["knn"].kneighbors(
+            matrix.loc[input_data, :].values.reshape(1, -1),
+            n_neighbors=config.model_config.num_neighbors
+        )
+    except KeyError:
+        return ["No such book found. Nothing to recommend :("]
 
     for i in range(0, len(distances.flatten())):
         if i == 0:
-            results.append("Recommendations for {0}:\n".format(matrix.loc[input_data, :].name))
+            results.append(
+                "Recommendations for {0}:\n".format(
+                    matrix.loc[input_data, :].name))
         else:
             results.append(
-                "{0}: {1}, with distance of {2}:".format(i, matrix.index[indices.flatten()[i]], distances.flatten()[i])
+                "{0}: {1}, with distance of {2}:".format(
+                    i,
+                    matrix.index[indices.flatten()[i]],
+                    distances.flatten()[i]
+                )
             )
 
     return results
