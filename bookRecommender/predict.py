@@ -6,11 +6,12 @@ from bookRecommender.train_pipeline import run_training
 pipeline_file_name = f"{config.app_config.pipeline_save_file}{_version}.pkl"
 book_pipe = load_pipeline(file_name=pipeline_file_name)
 
-'input_data -> book_name, return -> Books that similar to queried book'
+"input_data -> book_name, return -> Books that similar to queried book"
 
 
-def make_prediction(input_data: str,
-                    ) -> list:
+def make_prediction(
+    input_data: str,
+) -> list:
     """Make a prediction using a saved model pipeline."""
 
     if book_pipe is None:
@@ -20,16 +21,17 @@ def make_prediction(input_data: str,
         pipe = book_pipe
 
     results = []
-    matrix = pipe.named_steps['prepare'].get_prepared_data()
-    distances, indices = pipe.named_steps['knn'].kneighbors(
-        matrix.loc[input_data, :].values.reshape(1, -1), n_neighbors=config.model_config.num_neighbors)
+    matrix = pipe.named_steps["prepare"].get_prepared_data()
+    distances, indices = pipe.named_steps["knn"].kneighbors(
+        matrix.loc[input_data, :].values.reshape(1, -1), n_neighbors=config.model_config.num_neighbors
+    )
 
     for i in range(0, len(distances.flatten())):
         if i == 0:
-            results.append('Recommendations for {0}:\n'.format(
-                matrix.loc[input_data, :].name))
+            results.append("Recommendations for {0}:\n".format(matrix.loc[input_data, :].name))
         else:
-            results.append('{0}: {1}, with distance of {2}:'.format(
-                i, matrix.index[indices.flatten()[i]], distances.flatten()[i]))
+            results.append(
+                "{0}: {1}, with distance of {2}:".format(i, matrix.index[indices.flatten()[i]], distances.flatten()[i])
+            )
 
     return results

@@ -5,10 +5,8 @@ from bookRecommender.processing import features
 def test_null_variable_transformer(sample_input_data):
     # Arrange
     transformer = features.NullVariableTransformer(
-                config.model_config.subject,
-                config.model_config.user,
-                config.model_config.rating_variable
-            )
+        config.model_config.subject, config.model_config.user, config.model_config.rating_variable
+    )
 
     # Apply
     subject = transformer.fit_transform(sample_input_data)
@@ -22,11 +20,11 @@ def test_null_variable_transformer(sample_input_data):
 def test_add_variable_transformer(sample_input_data):
     # Arrange
     transformer = features.AddVariableTransformer(
-                config.model_config.subject,
-                config.model_config.user,
-                config.model_config.rating_variable,
-                config.model_config.new_feature
-            )
+        config.model_config.subject,
+        config.model_config.user,
+        config.model_config.rating_variable,
+        config.model_config.new_feature,
+    )
 
     # Apply
     subject = transformer.fit_transform(sample_input_data)
@@ -42,13 +40,13 @@ def test_restrict_variable_transformer(sample_input_data):
         config.model_config.subject,
         config.model_config.user,
         config.model_config.rating_variable,
-        config.model_config.new_feature
+        config.model_config.new_feature,
     )
     transformerRestr = features.RestrictVariablesTransformer(
         config.model_config.location,
         config.model_config.popularity_threshold,
         config.model_config.new_feature,
-        config.model_config.specific_location
+        config.model_config.specific_location,
     )
 
     # Apply
