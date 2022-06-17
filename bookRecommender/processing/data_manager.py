@@ -10,18 +10,29 @@ from bookRecommender.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
 
 
 def load_dataset(*, file_name_book, file_name_user, file_name_rating: str) -> pd.DataFrame:
-    book = pd.read_csv(Path(f"{DATASET_DIR}/{file_name_book}"), sep=';', encoding="latin-1", on_bad_lines='skip',
-                       low_memory=False)
-    book.columns = ['ISBN', 'bookTitle', 'bookAuthor', 'yearOfPublication', 'publisher', 'imageUrlS', 'imageUrlM',
-                    'imageUrlL']
-    user = pd.read_csv(Path(f"{DATASET_DIR}/{file_name_user}"), sep=';', encoding="latin-1", on_bad_lines='skip',
-                       low_memory=False)
-    user.columns = ['userID', 'Location', 'Age']
-    rating = pd.read_csv(Path(f"{DATASET_DIR}/{file_name_rating}"), sep=';', encoding="latin-1", on_bad_lines='skip',
-                         low_memory=False)
-    rating.columns = ['userID', 'ISBN', 'bookRating']
-    combine_book_rating = pd.merge(rating, book, on='ISBN')
-    dataset = combine_book_rating.merge(user, left_on='userID', right_on='userID', how='left')
+    book = pd.read_csv(
+        Path(f"{DATASET_DIR}/{file_name_book}"), sep=";", encoding="latin-1", on_bad_lines="skip", low_memory=False
+    )
+    book.columns = [
+        "ISBN",
+        "bookTitle",
+        "bookAuthor",
+        "yearOfPublication",
+        "publisher",
+        "imageUrlS",
+        "imageUrlM",
+        "imageUrlL",
+    ]
+    user = pd.read_csv(
+        Path(f"{DATASET_DIR}/{file_name_user}"), sep=";", encoding="latin-1", on_bad_lines="skip", low_memory=False
+    )
+    user.columns = ["userID", "Location", "Age"]
+    rating = pd.read_csv(
+        Path(f"{DATASET_DIR}/{file_name_rating}"), sep=";", encoding="latin-1", on_bad_lines="skip", low_memory=False
+    )
+    rating.columns = ["userID", "ISBN", "bookRating"]
+    combine_book_rating = pd.merge(rating, book, on="ISBN")
+    dataset = combine_book_rating.merge(user, left_on="userID", right_on="userID", how="left")
     return dataset
 
 
@@ -49,7 +60,7 @@ def load_pipeline(*, file_name: str) -> Pipeline:
     try:
         trained_model = joblib.load(filename=file_path)
     except BaseException:
-        print('Cannot load saved pipline')
+        print("Cannot load saved pipline")
 
     return trained_model
 

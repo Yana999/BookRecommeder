@@ -7,9 +7,11 @@ def run_training() -> None:
     """Train the model."""
 
     # read training data
-    data = load_dataset(file_name_book=config.app_config.data_file_book,
-                        file_name_user=config.app_config.data_file_user,
-                        file_name_rating=config.app_config.data_file_ratings)
+    data = load_dataset(
+        file_name_book=config.app_config.data_file_book,
+        file_name_user=config.app_config.data_file_user,
+        file_name_rating=config.app_config.data_file_ratings,
+    )
 
     # fit model
     book_pipe.fit(data)
@@ -20,4 +22,4 @@ def run_training() -> None:
 
 if __name__ == "__main__":
     run_training()
-    print('trained')
+    print("trained")

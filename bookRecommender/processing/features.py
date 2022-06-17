@@ -40,18 +40,14 @@ class AddVariableTransformer(BaseEstimator, TransformerMixin):
         # so that we do not over-write the original dataframe
         X = X.copy()
 
-        X_additional = X.groupby(by=[self.subject])[
-            self.rating_variable
-        ].count().reset_index().rename(
-            columns={self.rating_variable: self.new_feature}
-        )[[self.subject, self.new_feature]]
-
-        X_last = X.merge(
-            X_additional,
-            left_on=self.subject,
-            right_on=self.subject,
-            how='left'
+        X_additional = (
+            X.groupby(by=[self.subject])[self.rating_variable]
+            .count()
+            .reset_index()
+            .rename(columns={self.rating_variable: self.new_feature})[[self.subject, self.new_feature]]
         )
+
+        X_last = X.merge(X_additional, left_on=self.subject, right_on=self.subject, how="left")
 
         return X_last
 
@@ -59,8 +55,7 @@ class AddVariableTransformer(BaseEstimator, TransformerMixin):
 class RestrictVariablesTransformer(BaseEstimator, TransformerMixin):
     # limit data according to threshold data transformer
 
-    def __init__(self, location, popularity_threshold,
-                 new_feature, specific_location):
+    def __init__(self, location, popularity_threshold, new_feature, specific_location):
         self.location = location
         self.popularity_threshold = popularity_threshold
         self.new_feature = new_feature
@@ -94,10 +89,7 @@ class PrepareVariablesTransformer(BaseEstimator, TransformerMixin):
     def transform(self, X):
         # so that we do not over-write the original dataframe
         X = X.copy()
-        self.X_pivot = X.pivot(
-            index=self.subject,
-            columns=self.user,
-            values=self.rating_variable).fillna(0)
+        self.X_pivot = X.pivot(index=self.subject, columns=self.user, values=self.rating_variable).fillna(0)
         X_matrix = csr_matrix(self.X_pivot.values)
         return X_matrix
 
