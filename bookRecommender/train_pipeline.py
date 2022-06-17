@@ -1,7 +1,6 @@
-from bookRecommender.predict import make_prediction
-from config.core import config
-from pipeline import book_pipe
-from processing.data_manager import load_dataset, save_pipeline
+from bookRecommender.config.core import config
+from bookRecommender.pipeline import book_pipe
+from bookRecommender.processing.data_manager import load_dataset, save_pipeline
 
 
 def run_training() -> None:
@@ -22,4 +21,3 @@ def run_training() -> None:
 if __name__ == "__main__":
     run_training()
     print('trained')
-    print(make_prediction('16 Lighthouse Road'))
