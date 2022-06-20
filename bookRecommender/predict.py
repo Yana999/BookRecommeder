@@ -24,7 +24,7 @@ def make_prediction(
     matrix = pipe.named_steps["prepare"].get_prepared_data()
     try:
         distances, indices = pipe.named_steps["knn"].kneighbors(
-            matrix.loc[input_data, :].values.reshape(1, -1),
+            matrix.loc[input_data.lower(), :].values.reshape(1, -1),
             n_neighbors=config.model_config.num_neighbors
         )
     except KeyError:
@@ -60,7 +60,7 @@ def make_prediction_names(input_data: str,
     matrix = pipe.named_steps["prepare"].get_prepared_data()
     try:
         distances, indices = pipe.named_steps["knn"].kneighbors(
-            matrix.loc[input_data, :].values.reshape(1, -1),
+            matrix.loc[input_data.lower(), :].values.reshape(1, -1),
             n_neighbors=config.model_config.num_neighbors
         )
     except KeyError:
@@ -79,4 +79,4 @@ def make_prediction_names(input_data: str,
 
 
 if __name__ == "__main__":
-    print(make_prediction_names('Animal Farm'))
+    print(make_prediction_names('animal farm'))

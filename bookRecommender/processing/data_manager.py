@@ -23,6 +23,7 @@ def load_dataset(*, file_name_book, file_name_user, file_name_rating: str) -> pd
         "imageUrlM",
         "imageUrlL",
     ]
+    book['bookTitle'] = book['bookTitle'].str.lower()
     user = pd.read_csv(
         Path(f"{DATASET_DIR}/{file_name_user}"), sep=";", encoding="latin-1", on_bad_lines="skip", low_memory=False
     )
