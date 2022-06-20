@@ -15,6 +15,7 @@ def make_prediction(
     """Make a prediction with distances using a saved model pipeline."""
 
     if book_pipe is None:
+        print('train pipline')
         run_training()
         pipe = load_pipeline(file_name=pipeline_file_name)
     else:
