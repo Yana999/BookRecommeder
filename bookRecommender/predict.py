@@ -10,9 +10,9 @@ book_pipe = load_pipeline(file_name=pipeline_file_name)
 
 
 def make_prediction(
-    input_data: str,
+        input_data: str,
 ) -> list:
-    """Make a prediction using a saved model pipeline."""
+    """Make a prediction with distances using a saved model pipeline."""
 
     if book_pipe is None:
         run_training()
@@ -37,10 +37,46 @@ def make_prediction(
         else:
             results.append(
                 "{0}: {1}, with distance of {2}:".format(
-                    i, 
+                    i,
                     matrix.index[indices.flatten()[i]],
                     distances.flatten()[i]
                 )
             )
 
     return results
+
+
+def make_prediction_names(input_data: str,
+                          ) -> list:
+    """Make a prediction without distances using a saved model pipeline."""
+
+    if book_pipe is None:
+        run_training()
+        pipe = load_pipeline(file_name=pipeline_file_name)
+    else:
+        pipe = book_pipe
+
+    results = []
+    matrix = pipe.named_steps["prepare"].get_prepared_data()
+    try:
+        distances, indices = pipe.named_steps["knn"].kneighbors(
+            matrix.loc[input_data, :].values.reshape(1, -1),
+            n_neighbors=config.model_config.num_neighbors
+        )
+    except KeyError:
+        return ["No such book found. Nothing to recommend :("]
+
+    for i in range(0, len(distances.flatten())):
+        if i > 0:
+            results.append(
+                "{0}. {1}\n".format(
+                    i,
+                    matrix.index[indices.flatten()[i]]
+                )
+            )
+
+    return results
+
+
+if __name__ == "__main__":
+    print(make_prediction_names('Animal Farm'))
