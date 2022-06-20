@@ -3,8 +3,9 @@ include *.md
 include *.pkl
 recursive-include ./bookRecommender/*
 
-include bookRecommender/datasets/train.csv
-include bookRecommender/datasets/test.csv
+include bookRecommender/datasets/BX-Users.csv
+include bookRecommender/datasets/BX-Books.csv
+include bookRecommender/datasets/BX-Book-Ratings.csv
 include bookRecommender/trained_models/*.pkl
 include bookRecommender/VERSION
 include bookRecommender/config.yml
